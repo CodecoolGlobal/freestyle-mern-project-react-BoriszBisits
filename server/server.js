@@ -5,14 +5,13 @@ app.use(express.json());
 
 let theCharacters;
 
-
-const fetchCharacters = async () => {
-    const res = await fetch('https://thronesapi.com/api/v2/Characters');
-    const data = await res.json();
+app.get('/api/characters', async (req, res) => {
+  const response = await fetch('https://thronesapi.com/api/v2/Characters');
+    const data = await response.json();
     theCharacters = data;
-  };
-
-fetchCharacters();
+    console.log(data)
+    res.send(theCharacters);
+  });
 
 app.get('/welcome', (req, res) => {
   res.send('Hello World!');
