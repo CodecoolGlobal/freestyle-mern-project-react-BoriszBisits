@@ -5,7 +5,7 @@ function Characters({ characters }) {
     <>
       {characters.map((character, i) => (
         <h2 key={i}>
-          {character.fullName}
+          {character.name}
         </h2>
       ))}
     </>
