@@ -1,28 +1,24 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const cors = require('cors');
 const Character = require('./model/character.js');
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 mongoose.connect('mongodb+srv://Zoli:paiscomming@cluster0.ttqbvg2.mongodb.net/characters').then(() => console.log('Connected'))
 
 let theCharacters;
 const quotes= [];
 
-async function getChar () {
-  const response = await Character.find();
-  const charList = response.map((e) => {
-    return e.name;
-  });
-  return Promise.resolve(charList);
-}
 
 
-app.get('api/characters', async(req, res) => {
-  getChar()
-    .then((charList) => {
-      res.send(charList);
-    });
+
+app.get('/api/characters', async(req, res) => {
+  console.log('fetch')
+  const response = await Character.find()
+  console.log(response)
+  res.send(response)
 })
 
 

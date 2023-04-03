@@ -6,10 +6,12 @@ function Characters({ characters, onCharacterDetails ,onCouncil}) {
     <>
      <button onClick={() => onCouncil()}>My Council</button>
       {characters.map((character, i) => (
-        <h2 key={i}>
-          {character.fullName}
+        <div key={i}>
+        <h2>{character.name}</h2>
+        <h3>{character.title}</h3>
+        <img src={character.imgurl} alt={character.img}></img>
           <button onClick={() => onCharacterDetails(character)}>Character Details</button>
-        </h2>
+        </div>
       ))}
 
 
