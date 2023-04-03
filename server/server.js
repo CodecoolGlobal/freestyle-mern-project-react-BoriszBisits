@@ -1,7 +1,6 @@
+const mongoose = require('mongoose');
 const express = require('express');
-const { default: mongoose } = require('mongoose');
 const app = express();
-
 app.use(express.json());
 
 let theCharacters;
@@ -12,9 +11,12 @@ const fetchCharacters = async () => {
     const data = await res.json();
     theCharacters = data;
   };
-  fetchCharacters();
 
+fetchCharacters();
 
-app.listen(5000, () => {
-    console.log('Server: http://localhost:5000');
+app.get('/welcome', (req, res) => {
+  res.send('Hello World!');
 });
+
+const port = 5000;
+app.listen(port, () => console.log(`http://127.0.0.1:${port}/welcome`));
