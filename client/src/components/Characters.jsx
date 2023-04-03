@@ -1,13 +1,18 @@
 import React from 'react'
 
-function Characters({ characters }) {
+function Characters({ characters, onCharacterDetails ,onCouncil}) {
+
   return (
     <>
+     <button onClick={() => onCouncil()}>My Council</button>
       {characters.map((character, i) => (
         <h2 key={i}>
-          {character.name}
+          {character.fullName}
+          <button onClick={() => onCharacterDetails(character)}>Character Details</button>
         </h2>
       ))}
+
+
     </>
   )
 }
