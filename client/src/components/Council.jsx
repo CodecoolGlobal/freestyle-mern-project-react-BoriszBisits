@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 
 function Council({ onBack, characters }) {
 
-
+    const [myCouncil, setMyCouncil] = useState([])
     const [input, setInput] = useState("");
     const [select, setSelect] = useState(undefined)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch('/api/characters');
+            const data = await res.json();
+            setMyCouncil(data);
+        }
+        fetchData()
+    }, [])
 
     const handleChange = (value) => {
         setInput(value);
@@ -25,7 +34,14 @@ function Council({ onBack, characters }) {
         console.log(select)
 
     };
-   
+
+    function handleAddMemberToCouncli(addMember) {
+        // fetch(`/api/council/${addMember}` , {method:'POST'})
+        setMyCouncil([...myCouncil, addMember])
+    
+        console.log(myCouncil)
+    }
+
 
     return (
         <div>
@@ -37,11 +53,18 @@ function Council({ onBack, characters }) {
             {select && select.map((element) =>
 
             (<h1>{element.fullName}
-                <button >Add To Council</button>
+                <button onClick={() => handleAddMemberToCouncli(element.fullName)}>Add To Council</button>
             </h1>
             ))}
 
+            {myCouncil && Array.isArray(myCouncil) && myCouncil.map((member) => (
+                <h1>
+                    {member.fullName}
+                    <button>Kill</button>
+                </h1>
+            ))}
         </div>
+        
     );
 };
 
