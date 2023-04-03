@@ -1,15 +1,14 @@
 const mongoose = require('mongoose');
 const express = require('express');
-const cors = require('cors');
+
 const Character = require('./model/character.js');
 const app = express();
 app.use(express.json());
-app.use(cors());
+
 
 mongoose.connect('mongodb+srv://Zoli:paiscomming@cluster0.ttqbvg2.mongodb.net/characters').then(() => console.log('Connected'))
 
-let theCharacters;
-const quotes= [];
+
 
 
 
@@ -18,7 +17,7 @@ app.get('/api/characters', async(req, res) => {
   console.log('fetch')
   const response = await Character.find()
   console.log(response)
-  res.send(response)
+  res.send(response)  
 })
 
 
@@ -49,7 +48,7 @@ const families = [
 
 //console.log(families);
 
-app.get('/api/characters/createdb', async (req, res) => {
+/*app.get('/api/characters/createdb', async (req, res) => {
   const response = await fetch('https://thronesapi.com/api/v2/Characters');
     const data = await response.json();
     theCharacters = data;
@@ -89,7 +88,7 @@ app.get('/api/characters/createdb', async (req, res) => {
 
 app.get('/welcome', (req, res) => {
   res.send('Hello World!');
-});
+});*/
 
 const port = 5000;
 app.listen(port, () => console.log(`http://127.0.0.1:${port}/welcome`));

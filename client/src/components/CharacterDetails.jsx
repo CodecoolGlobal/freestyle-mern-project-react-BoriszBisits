@@ -4,10 +4,15 @@ function CharacterDetails({character, onBack}) {
 
   return (
     <div>
-        {character.fullName}
+        {character.name}
         {character.title}
         {character.family}
-        <img src={character.imageUrl} alt="Loading"></img>
+        {character.councilMember}
+        {character.isAlive}
+        {character.location}
+        {character.quotes}
+        
+        <img src={character.imgurl} alt="Loading"></img>
         <button onClick={()=>onBack()}>Back</button>
     </div>
   )

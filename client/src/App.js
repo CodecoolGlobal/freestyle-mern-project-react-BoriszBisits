@@ -16,6 +16,7 @@ function App() {
       const data = await res.json();
       console.log(data)
       setCharacterData(data);
+      
     }
     fetchData()
   }, [])

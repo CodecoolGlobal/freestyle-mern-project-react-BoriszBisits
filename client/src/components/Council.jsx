@@ -8,13 +8,11 @@ function Council({ onBack, characters }) {
     const [select, setSelect] = useState(undefined)
 
     useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch('/api/characters');
-            const data = await res.json();
-            setMyCouncil(data);
+        
+        
         }
-        fetchData()
-    }, [])
+    
+    , [])
 
     const handleChange = (value) => {
         setInput(value);
@@ -26,8 +24,8 @@ function Council({ onBack, characters }) {
             return (
                 value &&
                 element &&
-                element.fullName &&
-                element.fullName.toLowerCase().includes(value.toLowerCase())
+                element.name &&
+                element.name.toLowerCase().includes(value.toLowerCase())
             );
         });
         setSelect(result)
@@ -36,7 +34,9 @@ function Council({ onBack, characters }) {
     };
 
     function handleAddMemberToCouncli(addMember) {
-        // fetch(`/api/council/${addMember}` , {method:'POST'})
+
+        
+         fetch(`/api/council/${addMember}` , {method:'POST'})
         setMyCouncil([...myCouncil, addMember])
     
         console.log(myCouncil)
@@ -50,16 +50,16 @@ function Council({ onBack, characters }) {
                 value={input}
                 onChange={(e) => handleChange(e.target.value)}
             />
-            {select && select.map((element) =>
+            {select && select.map((element, i) =>
 
-            (<h1>{element.fullName}
-                <button onClick={() => handleAddMemberToCouncli(element.fullName)}>Add To Council</button>
+            (<h1 key ={i}>{element.name}
+                <button onClick={() => handleAddMemberToCouncli(element.name)}>Add To Council</button>
             </h1>
             ))}
 
-            {myCouncil && Array.isArray(myCouncil) && myCouncil.map((member) => (
-                <h1>
-                    {member.fullName}
+            {myCouncil && Array.isArray(myCouncil) && myCouncil.map((member, i) => (
+                <h1 key ={i}>
+                    {member}
                     <button>Kill</button>
                 </h1>
             ))}
