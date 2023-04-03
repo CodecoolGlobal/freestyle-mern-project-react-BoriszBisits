@@ -1,9 +1,12 @@
-import React, {useEffect, useState}from 'react'
+import React, { useEffect, useState } from 'react'
 import Characters from './components/Characters';
+import CharacterDetails from './components/CharacterDetails';
 import './App.css';
 
 function App() {
-  const[characterData, setCharacterData] = useState(null)
+  const [characterData, setCharacterData] = useState(null);
+  const [character, setCharacter] = useState(null);
+  const [view, setView] = useState('characters');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,13 +17,30 @@ function App() {
     fetchData()
   }, [])
 
+  const handleCharacterDetails = (character) => {
+    setCharacter(character)
+    setView('characterDetails')
+  }
+
+  const handleBack = () => {
+    setView('characters')
+  }
+
   return (
     <div className="App">
-      {characterData && 
-      <Characters
-      characters={characterData}
-      />}
-     
+      {view === 'characters' &&
+        characterData && (
+        <Characters
+          characters={characterData}
+          onCharacterDetails={handleCharacterDetails}
+        />)}
+        
+      {view === 'characterDetails' && (
+        <CharacterDetails
+          character={character}
+          onBack={handleBack}
+        />
+      )}
     </div>
   );
 }
