@@ -57,7 +57,7 @@ function Council({ onBack, characters }) {
             </h1>
             ))}
 
-            {myCouncil && Array.isArray(myCouncil) && myCouncil.map((member, i) => (
+            {myCouncil && myCouncil.map((member, i) => (
                 <h1 key ={i}>
                     {member}
                     <button>Kill</button>
