@@ -1,8 +1,12 @@
 import React from 'react'
 
-function Header() {
+function Header({onCouncil, onClickCharacter}) {
   return (
-    <div>Header</div>
+    <>
+    <div className='main-title'> Game of Thrones </div>
+    <button classname='header-btn' onClick={() => onClickCharacter()}>Characters</button>
+    <button classname='header-btn' onClick={() => onCouncil()}>My Council</button>
+    </>
   )
 }
 
