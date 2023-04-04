@@ -1,3 +1,7 @@
+body {
+    color: #B0C4DE;
+}
+
 .main-title {
     background-color: #331C0E;
     color: #FFF190;
@@ -35,26 +39,25 @@
 }
 
 .chatactercards {
-    background-color: #C38D5F;
+    display: flex;
+    flex-direction: column;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px;
     margin: 16px;
-
     width: 300px;
     height: 175%;
-    /* set the height to 175% of the width */
-
     box-sizing: border-box;
     margin-right: 2%;
     margin-bottom: 2%;
+    align-items: center;
 }
 
 .chatactercards img {
     width: 200px;
-    height: 350px;
+    height: 200px;
+    object-fit: cover;
     margin-bottom: 16px;
-    align-items: center;
 }
 
 .chatactercards h2 {
@@ -87,99 +90,99 @@
     background-color: #CD5C5C;
 }
 
-.cahfamily.Stark {
+.chatactercards.Stark {
     background-color: #CD5C5C;
 }
 
-.cahfamily.Targaryen {
+.chatactercards.Targaryen {
     background-color: #6A5ACD;
 }
 
-.cahfamily.Tarly {
+.chatactercards.Tarly {
     background-color: #B0C4DE;
 }
 
-.cahfamily.Tarth {
+.chatactercards.Tarth {
     background-color: #FFDAB9;
 }
 
-.cahfamily.Naathi {
+.chatactercards.Naathi {
     background-color: #F0E68C;
 }
 
-.cahfamily.Baelish {
+.chatactercards.Baelish {
     background-color: #8FBC8F;
 }
 
-.cahfamily.Unknown {
+.chatactercards.Unknown {
     background-color: #26362a;
 }
 
-.cahfamily.Seaworth {
+.chatactercards.Seaworth {
     background-color: #DAA520;
 }
 
-.cahfamily.Tyrell {
+.chatactercards.Tyrell {
     background-color: #32CD32;
 }
 
-.cahfamily.Folk {
+.chatactercards.Folk {
     background-color: #708090;
 }
 
-.cahfamily.Lorathi {
+.chatactercards.Lorathi {
     background-color: #C71585;
 }
 
-.cahfamily.Mormont {
+.chatactercards.Mormont {
     background-color: #008080;
 }
 
-.cahfamily.Naharis {
+.chatactercards.Naharis {
     background-color: #FF69B4;
 }
 
-.cahfamily.Sparrow {
+.chatactercards.Sparrow {
     background-color: #F08080;
 }
 
-.cahfamily.Viper {
+.chatactercards.Viper {
     background-color: #DB7093;
 }
 
-.cahfamily.Sand {
+.chatactercards.Sand {
     background-color: #FFC0CB;
 }
 
-.cahfamily.Worm {
+.chatactercards.Worm {
     background-color: #7B68EE;
 }
 
-.cahfamily.Qyburn {
+.chatactercards.Qyburn {
     background-color: #FF6347;
 }
 
-.cahfamily.Bronn {
+.chatactercards.Bronn {
     background-color: #00CED1;
 }
 
-.cahfamily.Clegane {
+.chatactercards.Clegane {
     background-color: #696969;
 }
 
-.cahfamily.Greyjoy {
+.chatactercards.Greyjoy {
     background-color: #2F4F4F;
 }
 
-.cahfamily.Lannister {
+.chatactercards.Lannister {
     background-color: #FFD700;
 }
 
-.cahfamily.Baratheon {
+.chatactercards.Baratheon {
     background-color: #00008B;
 }
 
-.cahfamily.Bolton {
+.chatactercards.Bolton {
     background-color: #8B0000;
 }
 
