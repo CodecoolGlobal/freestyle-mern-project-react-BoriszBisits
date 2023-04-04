@@ -14,7 +14,7 @@ function App() {
     const fetchData = async () => {
       const res = await fetch('/api/characters');
       const data = await res.json();
-      console.log(data)
+      //console.log(data)
       setCharacterData(data);
       
     }
