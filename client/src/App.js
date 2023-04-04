@@ -9,6 +9,7 @@ function App() {
   const [character, setCharacter] = useState(null);
   const [view, setView] = useState('characters');
   
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +26,18 @@ function App() {
     setCharacter(character)
     setView('characterDetails')
   }
+
+  function getKilled() {
+    setCharacter(character.filter(char =>
+      char.isAlive === true
+    ))
+  }
+
+  useEffect(() => {
+    getKilled()
+  }, [])
+
+ 
 
   const handleBack = () => {
     setView('characters')
@@ -51,8 +64,10 @@ function App() {
       )}
       {view === 'council' && (
         <Council
+        
           characters={characterData}
           onBack={handleBack}
+         
         />
       )}
     </div>

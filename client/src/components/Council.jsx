@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 
-function Council({ onBack, characters }) {
+function Council({ onBack, characters, killClick }) {
 
   const [myCouncil, setMyCouncil] = useState([])
   const [input, setInput] = useState("");
@@ -17,6 +17,12 @@ function Council({ onBack, characters }) {
     getCouncil()
   }, [])
 
+function killClick(deadone){
+    deadone.isAlive=false;
+    fetch(`/api/character/${deadone.name}` , {method:'POST'})
+
+  }
+
   const handleChange = (value) => {
     setInput(value);
 
@@ -24,14 +30,15 @@ function Council({ onBack, characters }) {
       return (
         value &&
         element.name.toLowerCase().includes(value.toLowerCase()) &&
-        element.councilMember === false
+        element.councilMember === false && 
+        element.isAlive ===true
       );
     });
     setSelect(result)
   };
 
   function handleAddMemberToCouncli(addMember) {
-    //fetch(`/api/council/${addMember}` , {method:'POST'})
+    fetch(`/api/council/${addMember.name}` , {method:'POST'})
     addMember.councilMember = true
     getCouncil()
   }
@@ -53,7 +60,7 @@ function Council({ onBack, characters }) {
       {myCouncil && myCouncil.map((member, i) => (
         <>
           <h1 key={i}>{member.name}</h1>
-          <button key={`btn${i}`}>Kill</button>
+          <button key={`btn${i}`} onClick={()=>killClick(member)}>Kill</button>
         </>
       ))}
     </div>
