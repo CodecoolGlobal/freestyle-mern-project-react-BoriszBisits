@@ -1,20 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-function Characters({ characters, onCharacterDetails}) {
-
+function Characters({ characters, onCharacterDetails }) {
   return (
-    <>
-      {characters.map((character, i) => (
-        (character.isAlive) &&
-        <div key={i}>
-        <h2>{character.name}</h2>
-        <h3>{character.title}</h3>
-        <img src={character.imgurl} alt={character.img}></img>
+    <div className="container">
+      {characters.map((character, i) => character.isAlive && (
+        
+        <div className="chatactercards" key={i}>
+          <div className={`cahfamily ${character.family.split(' ')[1]}`}>
+          <h2>{character.name}</h2>
+          <h3>{character.title}</h3>
+          <img  src={character.imgurl} alt={character.img}></img>
           <button onClick={() => onCharacterDetails(character)}>Character Details</button>
+          </div>
         </div>
       ))}
-    </>
-  )
+    </div>
+  );
 }
 
-export default Characters
+export default Characters;

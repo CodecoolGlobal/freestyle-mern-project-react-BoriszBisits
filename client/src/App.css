@@ -33,3 +33,164 @@
     box-shadow: none;
     transform: translate(0.25vh, 0.25vh);
 }
+
+.chatactercards {
+    background-color: #C38D5F;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 16px;
+
+    width: 300px;
+    height: 175%;
+    /* set the height to 175% of the width */
+
+    box-sizing: border-box;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+.chatactercards img {
+    width: 200px;
+    height: 350px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.chatactercards h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.chatactercards h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.chatactercards p {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.chatactercards button {
+    background-color: #8B0000;
+    color: #f09e2b;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.chatactercards button:hover {
+    background-color: #CD5C5C;
+}
+
+.cahfamily.Stark {
+    background-color: #CD5C5C;
+}
+
+.cahfamily.Targaryen {
+    background-color: #6A5ACD;
+}
+
+.cahfamily.Tarly {
+    background-color: #B0C4DE;
+}
+
+.cahfamily.Tarth {
+    background-color: #FFDAB9;
+}
+
+.cahfamily.Naathi {
+    background-color: #F0E68C;
+}
+
+.cahfamily.Baelish {
+    background-color: #8FBC8F;
+}
+
+.cahfamily.Unknown {
+    background-color: #26362a;
+}
+
+.cahfamily.Seaworth {
+    background-color: #DAA520;
+}
+
+.cahfamily.Tyrell {
+    background-color: #32CD32;
+}
+
+.cahfamily.Folk {
+    background-color: #708090;
+}
+
+.cahfamily.Lorathi {
+    background-color: #C71585;
+}
+
+.cahfamily.Mormont {
+    background-color: #008080;
+}
+
+.cahfamily.Naharis {
+    background-color: #FF69B4;
+}
+
+.cahfamily.Sparrow {
+    background-color: #F08080;
+}
+
+.cahfamily.Viper {
+    background-color: #DB7093;
+}
+
+.cahfamily.Sand {
+    background-color: #FFC0CB;
+}
+
+.cahfamily.Worm {
+    background-color: #7B68EE;
+}
+
+.cahfamily.Qyburn {
+    background-color: #FF6347;
+}
+
+.cahfamily.Bronn {
+    background-color: #00CED1;
+}
+
+.cahfamily.Clegane {
+    background-color: #696969;
+}
+
+.cahfamily.Greyjoy {
+    background-color: #2F4F4F;
+}
+
+.cahfamily.Lannister {
+    background-color: #FFD700;
+}
+
+.cahfamily.Baratheon {
+    background-color: #00008B;
+}
+
+.cahfamily.Bolton {
+    background-color: #8B0000;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+}
+
+body {
+    background: url('../src/img/The_Iron_Throne.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
