@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const express = require('express');
-
 const Character = require('./model/character.js');
 const app = express();
 app.use(express.json());
@@ -8,18 +7,30 @@ app.use(express.json());
 
 mongoose.connect('mongodb+srv://Zoli:paiscomming@cluster0.ttqbvg2.mongodb.net/characters').then(() => console.log('Connected'))
 
-
-
-
-
-
 app.get('/api/characters', async(req, res) => {
-  console.log('fetch')
   const response = await Character.find()
-  console.log(response)
   res.send(response)  
 })
 
+app.post('/api/council/:id', async(req, res) => {
+  const addToCouncil = req.params.id
+  console.log(addToCouncil)
+  await Character.findOneAndUpdate(
+    {name:addToCouncil},
+    {councilMember: true}
+    )
+  res.sendStatus(200)
+})
+
+app.post('/api/character/:id', async(req, res) => {
+  const killCharacter = req.params.id
+  console.log(addToCouncil)
+  await Character.findOneAndUpdate(
+    {name:killCharacter},
+    {isAlive: false}
+    )
+  res.sendStatus(200)
+})
 
 
 //createdb
@@ -46,14 +57,11 @@ const families = [
   { name: 'House Tarly', location: 'Horn Hill' }
 ];
 
-//console.log(families);
-
-/*app.get('/api/characters/createdb', async (req, res) => {
+app.get('/api/characters/createdb', async (req, res) => {
   const response = await fetch('https://thronesapi.com/api/v2/Characters');
     const data = await response.json();
     theCharacters = data;
   
-    //console.log(data)
     const zizi = data.map((char) => {
       const name = char.fullName
       const title = char.title
@@ -88,7 +96,7 @@ const families = [
 
 app.get('/welcome', (req, res) => {
   res.send('Hello World!');
-});*/
+});
 
 const port = 5000;
 app.listen(port, () => console.log(`http://127.0.0.1:${port}/welcome`));
