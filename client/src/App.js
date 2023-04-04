@@ -9,16 +9,12 @@ function App() {
   const [characterData, setCharacterData] = useState(null);
   const [character, setCharacter] = useState(null);
   const [view, setView] = useState('characters');
-  
-  
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch('/api/characters');
       const data = await res.json();
-      //console.log(data)
-      setCharacterData(data);
-      
+      setCharacterData(data); 
     }
     fetchData()
   }, [])
@@ -28,24 +24,14 @@ function App() {
     setView('characterDetails')
   }
 
-  function getKilled() {
-    setCharacter(character.filter(char =>
-      char.isAlive === true
-    ))
-  }
-
-  useEffect(() => {
-    getKilled()
-  }, [])
-
- 
-
   const handleBack = () => {
     setView('characters')
   }
+
   const handelCouncil = () => {
     setView('council')
   }
+
   const handleCharacter = () => {
     setView('characters')
   }
@@ -75,7 +61,6 @@ function App() {
         
           characters={characterData}
           onBack={handleBack}
-         
         />
       )}
     </div>

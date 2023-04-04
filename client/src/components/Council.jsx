@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 
-function Council({ onBack, characters, killClick }) {
+function Council({ onBack, characters }) {
 
   const [myCouncil, setMyCouncil] = useState([])
   const [input, setInput] = useState("");
@@ -9,19 +9,13 @@ function Council({ onBack, characters, killClick }) {
 
   function getCouncil() {
     setMyCouncil(characters.filter(char =>
-      char.councilMember === true
+      char.councilMember === true && char.isAlive === true
     ))
   }
 
   useEffect(() => {
     getCouncil()
   }, [])
-
-function killClick(deadone){
-    deadone.isAlive=false;
-    fetch(`/api/character/${deadone.name}` , {method:'POST'})
-
-  }
 
   const handleChange = (value) => {
     setInput(value);
@@ -41,6 +35,11 @@ function killClick(deadone){
     fetch(`/api/council/${addMember.name}` , {method:'POST'})
     addMember.councilMember = true
     getCouncil()
+  }
+
+  function killClick(deadone){
+    deadone.isAlive=false;
+    fetch(`/api/character/${deadone.name}` , {method:'POST'})
   }
 
   return (
@@ -66,7 +65,5 @@ function killClick(deadone){
     </div>
   );
 };
-
-
 
 export default Council

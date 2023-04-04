@@ -24,7 +24,7 @@ app.post('/api/council/:id', async(req, res) => {
 
 app.post('/api/character/:id', async(req, res) => {
   const killCharacter = req.params.id
-  console.log(addToCouncil)
+  console.log(killCharacter)
   await Character.findOneAndUpdate(
     {name:killCharacter},
     {isAlive: false}
