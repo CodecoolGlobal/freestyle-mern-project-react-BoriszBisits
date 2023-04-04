@@ -1,0 +1,35 @@
+.main-title {
+    background-color: #331C0E;
+    color: #FFF190;
+    font-size: 10vh;
+    text-align: center;
+}
+
+.header-btn {
+    background-color: #B9540C;
+    color: #FCFEF0;
+    font-size: 3vh;
+    padding: 1vh 2vh;
+    border: none;
+    border-radius: 2vh;
+    box-shadow: 0.5vh 0.5vh 0 #C38D5F;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-right: 1vh;
+}
+
+.header-btn:hover {
+    background-color: #FCFEF0;
+    color: #331C0E;
+    box-shadow: 1vh 1vh 0 #C38D5F;
+    transform: translate(-0.25vh, -0.25vh);
+}
+
+.header-btn:active {
+    background-color: #67331E;
+    color: #FFF190;
+    box-shadow: none;
+    transform: translate(0.25vh, 0.25vh);
+}
