@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Characters({ characters, onCharacterDetails ,onCouncil}) {
+function Characters({ characters, onCharacterDetails}) {
 
   return (
     <>
-     <button onClick={() => onCouncil()}>My Council</button>
+     
       {characters.map((character, i) => (
         <div key={i}>
         <h2>{character.name}</h2>

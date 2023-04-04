@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Characters from './components/Characters';
 import CharacterDetails from './components/CharacterDetails';
 import Council from './components/Council';
+import Header from './components/Header';
 import './App.css';
 
 function App() {
@@ -32,9 +33,16 @@ function App() {
   const handelCouncil = () => {
     setView('council')
   }
+  const handleCharacter = () => {
+    setView('characters')
+  }
 
   return (
     <div className="App">
+    <Header 
+    onCouncil={handelCouncil}
+    onClickCharacter={handleCharacter}
+    />
       {view === 'characters' &&
         characterData && (
           <Characters
