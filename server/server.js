@@ -4,8 +4,15 @@ const Character = require('./model/character.js');
 const app = express();
 app.use(express.json());
 
+let connection = false
 
-mongoose.connect('mongodb+srv://Zoli:paiscomming@cluster0.ttqbvg2.mongodb.net/characters').then(() => console.log('Connected'))
+mongoose.connect('mongodb+srv://Zoli:paiscomming@cluster0.ttqbvg2.mongodb.net/characters').then(() => 
+  console.log('Connected'),
+  connection = true)
+
+app.get('/api/connection', (req, res) => {
+  res.send(connection)
+})
 
 app.get('/api/characters', async(req, res) => {
   const response = await Character.find()
