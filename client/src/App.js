@@ -43,6 +43,12 @@ function App() {
     retryCheckConnectionStatus()
   }, [])
 
+  function handleAddMemberToCouncli(addMember) {
+    fetch(`/api/council/${addMember.name}` , {method:'POST'})
+    addMember.councilMember = true
+    //getCouncil()
+  }
+
   const handleCharacterDetails = (character) => {
     setCharacter(character)
     setView('characterDetails')
@@ -70,6 +76,9 @@ function App() {
           <Header
             onCouncil={handelCouncil}
             onClickCharacter={handleCharacter}
+            characters={characterData}
+            onAddMemberToCouncli={handleAddMemberToCouncli}
+            onCharacterDetails={handleCharacterDetails}
           />
           {view === 'characters' &&
             characterData && (

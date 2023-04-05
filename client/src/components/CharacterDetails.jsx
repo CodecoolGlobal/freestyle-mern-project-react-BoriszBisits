@@ -18,10 +18,10 @@ function CharacterDetails({character, onBack}) {
         <div>{character.councilMember}</div>
         <div>{character.isAlive}</div>
         <div>Location: {character.location}</div>
-        <buttons>
+        <div name='buttons'>
           <button className='header-btn'>Add to Council</button>
           <button className='header-btn'>Kill</button>
-        </buttons>
+        </div>
       </div>
       <img src={banner} style={{height: 550}} alt=''></img> 
     </div>
