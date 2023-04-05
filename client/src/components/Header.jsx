@@ -19,6 +19,7 @@ function Header({onCouncil, onClickCharacter, characters, onCharacterDetails}) {
   };
 
   return (
+    <>
     <div className='main-title'>
     <div> Game of Thrones </div>
     <button className='header-btn' onClick={() => onClickCharacter()}>Characters</button>
@@ -28,10 +29,13 @@ function Header({onCouncil, onClickCharacter, characters, onCharacterDetails}) {
       value={input}
       onChange={(e) => handleChange(e.target.value)}
     />
+    </div>
+    <div>
       {select && select.map((element, i) =>
         <h1 key={i} className='options' onClick={() => (setInput(''), setSelect(undefined), onCharacterDetails(element))}>{element.name}</h1> 
       )}
     </div>
+    </>
   )
 }
 
