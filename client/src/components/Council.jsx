@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../App.css';
 
-function Council({ onBack, characters }) {
+function Council({ characters, onKill }) {
 
   const [myCouncil, setMyCouncil] = useState([])
   
@@ -20,20 +20,17 @@ function Council({ onBack, characters }) {
 
   
 
-  function killClick(deadone){
-    deadone.isAlive=false;
-    fetch(`/api/character/${deadone.name}` , {method:'POST'})
-  }
+  
 
   return (
-    <div>
-      
-
+    <div className='container'>
       {myCouncil && myCouncil.map((member, i) => (
-        <>
-          <h1 key={i}>{member.name}</h1>
-          <button className='header-btn'  key={`btn${i}`} onClick={()=>killClick(member)}>Kill</button>
-        </>
+        <div key={i} className={`chatactercards ${member.family.split(' ')[1]}`}>
+        <h2>{member.name}</h2>
+        <h3>{member.title}</h3>
+        <img  src={member.imgurl} alt={member.img}></img>
+        <button className='header-btn'  key={`btn${i}`} onClick={()=>onKill(member)}>Kill</button>      
+      </div>
       ))}
     </div>
   );

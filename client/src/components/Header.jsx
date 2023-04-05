@@ -12,7 +12,6 @@ function Header({onCouncil, onClickCharacter, characters, onCharacterDetails}) {
       return (
         value &&
         element.name.toLowerCase().includes(value.toLowerCase()) &&
-        element.councilMember === false && 
         element.isAlive ===true
       );
     });
@@ -20,8 +19,8 @@ function Header({onCouncil, onClickCharacter, characters, onCharacterDetails}) {
   };
 
   return (
-    <>
-    <div className='main-title'> Game of Thrones </div>
+    <div className='main-title'>
+    <div> Game of Thrones </div>
     <button className='header-btn' onClick={() => onClickCharacter()}>Characters</button>
     <button className='header-btn' onClick={() => onCouncil()}>My Council</button>
     <input className='searchField'
@@ -32,7 +31,7 @@ function Header({onCouncil, onClickCharacter, characters, onCharacterDetails}) {
       {select && select.map((element, i) =>
         <h1 key={i} className='options' onClick={() => (setInput(''), setSelect(undefined), onCharacterDetails(element))}>{element.name}</h1> 
       )}
-    </>
+    </div>
   )
 }
 

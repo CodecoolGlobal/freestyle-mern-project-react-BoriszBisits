@@ -43,19 +43,21 @@ function App() {
     retryCheckConnectionStatus()
   }, [])
 
-  function handleAddMemberToCouncli(addMember) {
+  function handleAddMemberToCouncil(addMember) {
     fetch(`/api/council/${addMember.name}` , {method:'POST'})
     addMember.councilMember = true
-    //getCouncil()
+    setView('council')
+  }
+
+  function handleKill(character){
+    character.isAlive=false;
+    fetch(`/api/character/${character.name}` , {method:'POST'})
+    setView('characters')
   }
 
   const handleCharacterDetails = (character) => {
     setCharacter(character)
     setView('characterDetails')
-  }
-
-  const handleBack = () => {
-    setView('characters')
   }
 
   const handelCouncil = () => {
@@ -77,7 +79,6 @@ function App() {
             onCouncil={handelCouncil}
             onClickCharacter={handleCharacter}
             characters={characterData}
-            onAddMemberToCouncli={handleAddMemberToCouncli}
             onCharacterDetails={handleCharacterDetails}
           />
           {view === 'characters' &&
@@ -85,19 +86,19 @@ function App() {
               <Characters
                 characters={characterData}
                 onCharacterDetails={handleCharacterDetails}
-                onCouncil={handelCouncil}
               />
             )}
           {view === 'characterDetails' && (
             <CharacterDetails
               character={character}
-              onBack={handleBack}
+              onAddMemberToCouncil={handleAddMemberToCouncil}
+              onKill={handleKill}
             />
           )}
           {view === 'council' && (
             <Council
               characters={characterData}
-              onBack={handleBack}
+              onKill={handleKill}
             />
           )}
         </>
