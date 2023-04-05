@@ -1,199 +1,194 @@
-body {
-    color: #B0C4DE;
-}
-
 .main-title {
-    background-color: #331C0E;
-    color: #FFF190;
-    font-size: 10vh;
-    text-align: center;
+  background-color: #331C0E;
+  color: #FFF190;
+  font-size: 10vh;
+  text-align: center;
 }
 
 .header-btn {
-    background-color: #B9540C;
-    color: #FCFEF0;
-    font-size: 3vh;
-    padding: 1vh 2vh;
-    border: none;
-    border-radius: 2vh;
-    box-shadow: 0.5vh 0.5vh 0 #C38D5F;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    margin-right: 1vh;
+  background-color: #B9540C;
+  color: #FCFEF0;
+  font-size: 3vh;
+  padding: 1vh 2vh;
+  border: none;
+  border-radius: 2vh;
+  box-shadow: 0.5vh 0.5vh 0 #C38D5F;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-right: 1vh;
 }
 
 .header-btn:hover {
-    background-color: #FCFEF0;
-    color: #331C0E;
-    box-shadow: 1vh 1vh 0 #C38D5F;
-    transform: translate(-0.25vh, -0.25vh);
+  background-color: #FCFEF0;
+  color: #331C0E;
+  box-shadow: 1vh 1vh 0 #C38D5F;
+  transform: translate(-0.25vh, -0.25vh);
 }
 
 .header-btn:active {
-    background-color: #67331E;
-    color: #FFF190;
-    box-shadow: none;
-    transform: translate(0.25vh, 0.25vh);
+  background-color: #67331E;
+  color: #FFF190;
+  box-shadow: none;
+  transform: translate(0.25vh, 0.25vh);
 }
 
 .chatactercards {
-    display: flex;
-    flex-direction: column;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    margin: 16px;
-    width: 300px;
-    height: 175%;
-    box-sizing: border-box;
-    margin-right: 2%;
-    margin-bottom: 2%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 16px;
+  width: 300px;
+  height: 175%;
+  box-sizing: border-box;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  align-items: center;
 }
 
 .chatactercards img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 16px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 16px;
 }
 
 .chatactercards h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
+  font-size: 24px;
+  margin-bottom: 8px;
 }
 
 .chatactercards h3 {
-    font-size: 18px;
-    margin-bottom: 16px;
+  font-size: 18px;
+  margin-bottom: 16px;
 }
 
 .chatactercards p {
-    font-size: 16px;
-    margin-bottom: 16px;
+  font-size: 16px;
+  margin-bottom: 16px;
 }
 
 .chatactercards button {
-    background-color: #8B0000;
-    color: #f09e2b;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-size: 16px;
-    opacity: 0.8;
-    cursor: pointer;
+  background-color: #8B0000;
+  color: #ffe0b6;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 16px;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .chatactercards button:hover {
-    background-color: #CD5C5C;
+  background-color: #CD5C5C;
 }
 
 .chatactercards.Stark {
-    background-color: #CD5C5C;
+  background-color: #CD5C5C;
 }
 
 .chatactercards.Targaryen {
-    background-color: #6A5ACD;
+  background-color: #6A5ACD;
 }
 
 .chatactercards.Tarly {
-    background-color: #B0C4DE;
+  background-color: #B0C4DE;
 }
 
 .chatactercards.Tarth {
-    background-color: #FFDAB9;
+  background-color: #FFDAB9;
 }
 
 .chatactercards.Naathi {
-    background-color: #F0E68C;
+  background-color: #F0E68C;
 }
 
 .chatactercards.Baelish {
-    background-color: #8FBC8F;
+  background-color: #8FBC8F;
 }
 
 .chatactercards.Unknown {
-    background-color: #26362a;
+  background-color: #26362a;
 }
 
 .chatactercards.Seaworth {
-    background-color: #DAA520;
+  background-color: #DAA520;
 }
 
 .chatactercards.Tyrell {
-    background-color: #32CD32;
+  background-color: #32CD32;
 }
 
 .chatactercards.Folk {
-    background-color: #708090;
+  background-color: #708090;
 }
 
 .chatactercards.Lorathi {
-    background-color: #C71585;
+  background-color: #C71585;
 }
 
 .chatactercards.Mormont {
-    background-color: #008080;
+  background-color: #008080;
 }
 
 .chatactercards.Naharis {
-    background-color: #FF69B4;
+  background-color: #FF69B4;
 }
 
 .chatactercards.Sparrow {
-    background-color: #F08080;
+  background-color: #F08080;
 }
 
 .chatactercards.Viper {
-    background-color: #DB7093;
+  background-color: #DB7093;
 }
 
 .chatactercards.Sand {
-    background-color: #FFC0CB;
+  background-color: #FFC0CB;
 }
 
 .chatactercards.Worm {
-    background-color: #7B68EE;
+  background-color: #7B68EE;
 }
 
 .chatactercards.Qyburn {
-    background-color: #FF6347;
+  background-color: #FF6347;
 }
 
 .chatactercards.Bronn {
-    background-color: #00CED1;
+  background-color: #00CED1;
 }
 
 .chatactercards.Clegane {
-    background-color: #696969;
+  background-color: #696969;
 }
 
 .chatactercards.Greyjoy {
-    background-color: #2F4F4F;
+  background-color: #2F4F4F;
 }
 
 .chatactercards.Lannister {
-    background-color: #FFD700;
+  background-color: #FFD700;
 }
 
 .chatactercards.Baratheon {
-    background-color: #00008B;
+  background-color: #00008B;
 }
 
 .chatactercards.Bolton {
-    background-color: #8B0000;
+  background-color: #8B0000;
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 body {
-    background: url('../src/img/The_Iron_Throne.jpg') no-repeat center center fixed;
-    background-size: cover;
+  background: url('../src/img/The_Iron_Throne.jpg') no-repeat center center fixed;
+  background-size: cover;
 }

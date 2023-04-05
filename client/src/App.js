@@ -18,10 +18,12 @@ function App() {
     return data
   }
 
-  const fetchData = async () => {
-    const res = await fetch('/api/characters');
-    const data = await res.json();
-    setCharacterData(data);
+  const getData = async () => {
+    fetch('/api/characters')
+      .then(res => res.json())
+      .then(data => {
+        setCharacterData(data)
+        setConnection(true)})
   }
 
   const retryCheckConnectionStatus = () => {
@@ -29,11 +31,7 @@ function App() {
       fetchConnection()
         .then(connection => {
           if (connection === true) {
-            fetch('/api/characters')
-              .then(res => res.json())
-              .then(data => (
-                setCharacterData(data),
-                setConnection(true)))
+            getData()
           } else {
             retryCheckConnectionStatus();
           }
@@ -65,7 +63,7 @@ function App() {
   return (
     <div className="App">
       {connection === false && (
-        <p>Connecting to the server...</p>
+        <p style={{fontSize: 25, color: 'aqua'}}>Connecting to the server...</p>
       )}
       {connection === true && (
         <>

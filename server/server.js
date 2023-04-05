@@ -6,11 +6,10 @@ app.use(express.json());
 
 let connection = false
 
-mongoose.connect('mongodb+srv://Zoli:paiscomming@cluster0.ttqbvg2.mongodb.net/characters').then(() => 
-  console.log('Connected'),
-  connection = true)
+mongoose.connect('mongodb+srv://Zoli:paiscomming@cluster0.ttqbvg2.mongodb.net/characters').then(() => connection = true)
 
 app.get('/api/connection', (req, res) => {
+  //console.log(connection)
   res.send(connection)
 })
 

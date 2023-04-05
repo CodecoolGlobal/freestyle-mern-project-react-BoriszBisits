@@ -19,7 +19,6 @@ function Council({ onBack, characters }) {
 
   const handleChange = (value) => {
     setInput(value);
-
     const result = characters.filter((element) => {
       return (
         value &&
