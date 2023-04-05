@@ -5,8 +5,8 @@
   text-align: center;
 }
 
-h1 {
-  color: white;
+h1{
+  color: #FFF190;
 }
 
 .header-btn {
@@ -91,99 +91,99 @@ h1 {
 }
 
 .chatactercards.Stark {
-  background-color: #CD5C5C;
+  background-color: #3A3B3C;
 }
 
 .chatactercards.Targaryen {
-  background-color: #6A5ACD;
+  background-color: #9F1D20;
 }
 
 .chatactercards.Tarly {
-  background-color: #B0C4DE;
+  background-color: #5F5D5D;
 }
 
 .chatactercards.Tarth {
-  background-color: #FFDAB9;
+  background-color: #FFB347;
 }
 
 .chatactercards.Naathi {
-  background-color: #F0E68C;
+  background-color: #9ACD32;
 }
 
 .chatactercards.Baelish {
-  background-color: #8FBC8F;
+  background-color: #2E8B57;
 }
 
 .chatactercards.Unknown {
-  background-color: #26362a;
+  background-color: #7B8D8E;
 }
 
 .chatactercards.Seaworth {
-  background-color: #DAA520;
+  background-color: #B8860B;
 }
 
 .chatactercards.Tyrell {
-  background-color: #32CD32;
+  background-color: #4A7023;
 }
 
 .chatactercards.Folk {
-  background-color: #708090;
+  background-color: #A9A9A9;
 }
 
 .chatactercards.Lorathi {
-  background-color: #C71585;
+  background-color: #8B008B;
 }
 
 .chatactercards.Mormont {
-  background-color: #008080;
+  background-color: #1E90FF;
 }
 
 .chatactercards.Naharis {
-  background-color: #FF69B4;
+  background-color: #FF1493;
 }
 
 .chatactercards.Sparrow {
-  background-color: #F08080;
+  background-color: #CD5C5C;
 }
 
 .chatactercards.Viper {
-  background-color: #DB7093;
+  background-color: #FF8C00;
 }
 
 .chatactercards.Sand {
-  background-color: #FFC0CB;
+  background-color: #d2aa6d;
 }
 
 .chatactercards.Worm {
-  background-color: #7B68EE;
+  background-color: #4169E1;
 }
 
 .chatactercards.Qyburn {
-  background-color: #FF6347;
+  background-color: #DC143C;
 }
 
 .chatactercards.Bronn {
-  background-color: #00CED1;
+  background-color: #00BFFF;
 }
 
 .chatactercards.Clegane {
-  background-color: #696969;
-}
-
-.chatactercards.Greyjoy {
   background-color: #2F4F4F;
 }
 
+.chatactercards.Greyjoy {
+  background-color: #008B8B;
+}
+
 .chatactercards.Lannister {
-  background-color: #FFD700;
+  background-color: #DAA520;
 }
 
 .chatactercards.Baratheon {
-  background-color: #00008B;
+  background-color: #606060;
 }
 
 .chatactercards.Bolton {
-  background-color: #8B0000;
+  background-color: #6B0C0C;
 }
 
 .container {
