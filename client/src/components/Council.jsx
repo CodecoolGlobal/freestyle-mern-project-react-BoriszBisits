@@ -4,7 +4,6 @@ import '../App.css';
 function Council({ characters, onKill }) {
 
   const [myCouncil, setMyCouncil] = useState([])
-  
 
   function getCouncil() {
     setMyCouncil(characters.filter(char =>
@@ -15,12 +14,6 @@ function Council({ characters, onKill }) {
   useEffect(() => {
     getCouncil()
   }, [])
-
-  
-
-  
-
-  
 
   return (
     <div className='container'>
