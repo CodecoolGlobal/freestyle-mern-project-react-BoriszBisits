@@ -1,34 +1,7 @@
 require("dotenv").config();
-const mongoose = require("mongoose");
-const express = require("express");
 const Character = require("./model/character.js");
+const mongoose = require("mongoose");
 
-const app = express();
-app.use(express.json());
-
-app.get("/api/characters", async (req, res) => {
-  const response = await Character.find();
-  res.send(response);
-});
-
-app.post("/api/character/:id", async (req, res) => {
-  const killCharacter = req.params.id;
-  console.log(killCharacter);
-  await Character.findOneAndUpdate({ name: killCharacter }, { isAlive: false });
-  res.sendStatus(200);
-});
-
-app.post("/api/council/:id", async (req, res) => {
-  const addToCouncil = req.params.id;
-  console.log(addToCouncil);
-  await Character.findOneAndUpdate(
-    { name: addToCouncil },
-    { councilMember: true }
-  );
-  res.sendStatus(200);
-});
-
-//createdb
 const families = [
   { name: "House Stark", location: "Winterfell" },
   { name: "House Lannister", location: "Casterly Rock" },
@@ -52,11 +25,14 @@ const families = [
   { name: "House Tarly", location: "Horn Hill" },
 ];
 
-app.get("/api/characters/createdb", async (req, res) => {
-  const response = await fetch("https://thronesapi.com/api/v2/Characters");
+const seed = async () => {
+  await mongoose.connect(process.env.MONGO_URL);
+
+  const API_URL = "https://thronesapi.com/api/v2/Characters";
+  const response = await fetch(API_URL);
   const data = await response.json();
 
-  const zizi = data.map((char) => {
+  const characters = data.map((char) => {
     const name = char.fullName;
     const title = char.title;
     const family = char.family;
@@ -85,20 +61,13 @@ app.get("/api/characters/createdb", async (req, res) => {
     }
     return character;
   });
-  await Character.insertMany(zizi);
-  res.send("theCharacters");
-});
-//createdb
 
-app.get("/welcome", (req, res) => {
-  res.send("Hello World!");
-});
-
-const port = 5000;
-
-const main = async () => {
-  await mongoose.connect(process.env.MONGO_URL);
-  app.listen(port, () => console.log(`http://127.0.0.1:${port}/welcome`));
+  await Character.insertMany(characters);
+  console.log("Characters created");
 };
 
-main().catch((err) => console.error(err));
+seed()
+  .catch((err) => console.error(err))
+  .finally(() => {
+    mongoose.disconnect();
+  });
