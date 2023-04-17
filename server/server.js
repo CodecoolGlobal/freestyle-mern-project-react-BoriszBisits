@@ -28,6 +28,14 @@ app.post("/api/council/:id", async (req, res) => {
   res.sendStatus(200);
 });
 
+app.patch("/api/graveyard", async (req, res) => {
+  await Character.findByIdAndUpdate(
+    { _id: req.query.ressurectCharacterId },
+    { isAlive: true }
+  );
+  res.sendStatus(200);
+});
+
 app.get("/welcome", (req, res) => {
   res.send("Hello World!");
 });
