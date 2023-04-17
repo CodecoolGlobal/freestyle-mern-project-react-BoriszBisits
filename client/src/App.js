@@ -3,6 +3,7 @@ import Characters from "./components/Characters";
 import CharacterDetails from "./components/CharacterDetails";
 import Council from "./components/Council";
 import Header from "./components/Header";
+import Graveyard from "./components/Graveyard";
 import "./App.css";
 
 function App() {
@@ -47,6 +48,10 @@ function App() {
     setView("characters");
   };
 
+  const handleGraveyard = () => {
+    setView("graveyard");
+  };
+
   return (
     <div className="App">
       <Header
@@ -54,6 +59,7 @@ function App() {
         onClickCharacter={handleCharacter}
         characters={characterData}
         onCharacterDetails={handleCharacterDetails}
+        onGraveyard={handleGraveyard}
       />
       {view === "characters" && characterData && (
         <Characters
@@ -71,6 +77,7 @@ function App() {
       {view === "council" && (
         <Council characters={characterData} onKill={handleKill} />
       )}
+      {view === "graveyard" && <Graveyard characterData={characterData} />}
     </div>
   );
 }

@@ -6,6 +6,7 @@ function Header({
   onClickCharacter,
   characters,
   onCharacterDetails,
+  onGraveyard,
 }) {
   const [input, setInput] = useState("");
   const [select, setSelect] = useState(undefined);
@@ -31,6 +32,9 @@ function Header({
         </button>
         <button className="header-btn" onClick={() => onCouncil()}>
           My Council
+        </button>
+        <button className="header-btn" onClick={() => onGraveyard()}>
+          Graveyard
         </button>
         <input
           className="searchField"
