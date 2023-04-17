@@ -1,0 +1,10 @@
+.btn-ressurect{
+    background-color: #8B0000;
+    color: #ffe0b6;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+}
