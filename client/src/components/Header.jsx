@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import "../App.css";
 
 function Header({
@@ -6,6 +7,7 @@ function Header({
   onClickCharacter,
   characters,
   onCharacterDetails,
+  onDragonfire
 }) {
   const [input, setInput] = useState("");
   const [select, setSelect] = useState(undefined);
@@ -31,6 +33,9 @@ function Header({
         </button>
         <button className="header-btn" onClick={() => onCouncil()}>
           My Council
+        </button>
+        <button className="header-btn" onClick={() => onDragonfire()}>
+          Death by Dragonfire
         </button>
         <input
           className="searchField"

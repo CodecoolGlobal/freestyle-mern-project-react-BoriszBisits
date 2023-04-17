@@ -3,6 +3,7 @@ import Characters from "./components/Characters";
 import CharacterDetails from "./components/CharacterDetails";
 import Council from "./components/Council";
 import Header from "./components/Header";
+import Dragonfire from "./components/Dragondfire";
 import "./App.css";
 
 function App() {
@@ -46,10 +47,14 @@ function App() {
   const handleCharacter = () => {
     setView("characters");
   };
+  const handleDragonFire = () => {
+    setView("dragonfire");
+  };
 
   return (
     <div className="App">
       <Header
+        onDragonfire={handleDragonFire}
         onCouncil={handelCouncil}
         onClickCharacter={handleCharacter}
         characters={characterData}
@@ -70,6 +75,9 @@ function App() {
       )}
       {view === "council" && (
         <Council characters={characterData} onKill={handleKill} />
+      )}
+      {view === "dragonfire" && (
+        <Dragonfire characters={characterData}    onCharacterDetails={handleCharacterDetails} />
       )}
     </div>
   );
