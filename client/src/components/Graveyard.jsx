@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../Graveyard.css';
 
 function Graveyard({ characterData }) {
   const [deadCharacters, setdeadCharacters] = useState(characterData);
@@ -27,7 +28,7 @@ function Graveyard({ characterData }) {
             !character.isAlive && (
               <h1 key={character._id}>
                 {character.name}
-                <button
+                <button className="btn-ressurect"
                   onClick={() => {
                     resurrectCharacter(character._id);
                   }}
