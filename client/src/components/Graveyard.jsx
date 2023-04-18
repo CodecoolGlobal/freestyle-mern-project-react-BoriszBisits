@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../Graveyard.css';
+import "../Graveyard.css";
 
 function Graveyard({ characterData }) {
   const [deadCharacters, setdeadCharacters] = useState(characterData);
@@ -10,32 +10,35 @@ function Graveyard({ characterData }) {
     });
     updateCharacterData(id);
   }
-
   function updateCharacterData(id) {
+    // eslint-disable-next-line
     characterData.map((element) => {
       if (element._id === id) {
         element.isAlive = true;
         setdeadCharacters([...characterData]);
-    }
-});
+      }
+    });
   }
 
   return (
-    <div>
+    <div className="graveyard">
       {deadCharacters &&
         deadCharacters.map(
           (character) =>
             !character.isAlive && (
-              <h1 key={character._id}>
-                {character.name}
-                <button className="btn-ressurect"
-                  onClick={() => {
-                    resurrectCharacter(character._id);
-                  }}
-                >
-                  Resurrect
-                </button>
-              </h1>
+              <div key={character._id} className="rip">
+                <h1>
+                  {character.name}
+                  <button
+                    className="btn-resurrect"
+                    onClick={() => {
+                      resurrectCharacter(character._id);
+                    }}
+                  >
+                    Resurrect
+                  </button>
+                </h1>
+              </div>
             )
         )}
     </div>
