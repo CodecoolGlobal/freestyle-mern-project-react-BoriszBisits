@@ -13,21 +13,18 @@ app.get("/api/characters", async (req, res) => {
 
 app.post("/api/character/:id", async (req, res) => {
   const killCharacter = req.params.id;
-  console.log(killCharacter);
   await Character.findOneAndUpdate({ name: killCharacter }, { isAlive: false });
   res.sendStatus(200);
 });
 
 app.delete(`/api/dragonfire/:id`, async (req, res) => {
   const dragonfireCharacter = req.params.id;
-  //await Character.findByIdAndDelete(dragonfireCharacter)
-  console.log(dragonfireCharacter + "is killed");
+  await Character.findByIdAndDelete(dragonfireCharacter)
   res.sendStatus(200);
 });
 
 app.post("/api/council/:id", async (req, res) => {
   const addToCouncil = req.params.id;
-  console.log(addToCouncil);
   await Character.findOneAndUpdate(
     { name: addToCouncil },
     { councilMember: true }

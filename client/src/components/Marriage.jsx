@@ -18,13 +18,11 @@ function Marriage({ characters, onKill, onSave }) {
   const updateFather = (e) => {
     const father = characters.filter((char) => char._id === e.target.value)[0];
     setFather(father);
-    console.log(father.name);
   };
 
   const updateMother = (e) => {
     const mother = characters.filter((char) => char._id === e.target.value)[0];
     setMother(mother);
-    console.log(mother.name);
   };
 
   useEffect(() => {

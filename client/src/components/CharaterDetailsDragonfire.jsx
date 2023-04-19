@@ -13,8 +13,6 @@ function CharacterDetails({
 
   function deleteFromDataBase(character) {
     setAlive(false);
-
-    console.log(character._id);
     fetch(`/api/dragonfire/${character._id}`, { method: "DELETE" });
   }
 
