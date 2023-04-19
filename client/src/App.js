@@ -34,6 +34,12 @@ function App() {
     fetch(`/api/character/${character.name}`, { method: "POST" });
     setView("characters");
   }
+  
+  function renderDeathByFire(character){
+    character.isAlive = false;
+    setView("characters");
+
+  }
 
   const handleCharacterDetails = (character) => {
     setCharacter(character);
@@ -77,7 +83,7 @@ function App() {
         <Council characters={characterData} onKill={handleKill} />
       )}
       {view === "dragonfire" && (
-        <Dragonfire characters={characterData}    onCharacterDetails={handleCharacterDetails} />
+        <Dragonfire characters={characterData}  renderDeathByFire={renderDeathByFire}  onCharacterDetails={handleCharacterDetails} />
       )}
     </div>
   );
