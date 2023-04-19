@@ -59,7 +59,7 @@ function CharacterDetails({
             src={character.imgurl}
             alt="Loading"
             className="fade-out"
-            style={{ height: 200 }}
+            style={{ height: 400 }}
           />
           <button
             className="header-btn fade-in"
