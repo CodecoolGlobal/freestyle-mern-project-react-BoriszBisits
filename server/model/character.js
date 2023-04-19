@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const characterSchema = new Schema({
@@ -10,9 +10,9 @@ const characterSchema = new Schema({
   councilMember: Boolean,
   isAlive: Boolean,
   location: String,
-  quotes: Array
+  sex: String,
 });
 
-const Character = model('Character', characterSchema);
+const Character = model("Character", characterSchema);
 
 module.exports = Character;
