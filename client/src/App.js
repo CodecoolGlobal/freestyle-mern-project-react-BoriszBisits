@@ -4,9 +4,13 @@ import CharacterDetails from "./components/CharacterDetails";
 import Council from "./components/Council";
 import Header from "./components/Header";
 
+import Graveyard from "./components/Graveyard";
+
+
 import Dragonfire from "./components/Dragondfire";
 
 import Marriage from "./components/Marriage";
+
 
 import "./App.css";
 
@@ -82,6 +86,10 @@ function App() {
     });
   };
 
+  const handleGraveyard = () => {
+    setView("graveyard");
+  };
+
   return (
     <div className="App">
       <Header
@@ -90,7 +98,11 @@ function App() {
         onClickCharacter={handleCharacter}
         characters={characterData}
         onCharacterDetails={handleCharacterDetails}
+
+        onGraveyard={handleGraveyard}
+
         onMarriage={handleMarriage}
+
       />
       {view === "characters" && characterData && (
         <Characters
@@ -109,6 +121,9 @@ function App() {
         <Council characters={characterData} onKill={handleKill} />
       )}
 
+      {view === "graveyard" && <Graveyard characterData={characterData} />}
+
+
       {view === "dragonfire" && (
         <Dragonfire characters={characterData}  renderDeathByFire={renderDeathByFire}  onCharacterDetails={handleCharacterDetails} />
       )}
@@ -120,6 +135,7 @@ function App() {
         />
 
       )}
+
     </div>
   );
 }

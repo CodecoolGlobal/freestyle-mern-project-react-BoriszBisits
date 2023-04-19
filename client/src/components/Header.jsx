@@ -7,8 +7,12 @@ function Header({
   onClickCharacter,
   characters,
   onCharacterDetails,
+
+  onGraveyard,
+
   onDragonfire,
   onMarriage,
+
 }) {
   const [input, setInput] = useState("");
   const [select, setSelect] = useState(undefined);
@@ -36,11 +40,16 @@ function Header({
           My Council
         </button>
 
+        <button className="header-btn" onClick={() => onGraveyard()}>
+          Graveyard
+
+
         <button className="header-btn" onClick={() => onDragonfire()}>
           Death by Dragonfire
         </button>
         <button className="header-btn" onClick={() => onMarriage()}>
           Marriage
+
 
         </button>
         <input
