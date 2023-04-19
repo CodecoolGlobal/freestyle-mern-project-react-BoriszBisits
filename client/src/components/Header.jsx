@@ -7,11 +7,8 @@ function Header({
   onClickCharacter,
   characters,
   onCharacterDetails,
-
-  onDragonfire
-
+  onDragonfire,
   onMarriage,
-
 }) {
   const [input, setInput] = useState("");
   const [select, setSelect] = useState(undefined);
@@ -41,7 +38,7 @@ function Header({
 
         <button className="header-btn" onClick={() => onDragonfire()}>
           Death by Dragonfire
-
+        </button>
         <button className="header-btn" onClick={() => onMarriage()}>
           Marriage
 
@@ -70,7 +67,7 @@ function Header({
           ))}
       </div>
     </>
-  );
+  )
 }
 
 export default Header;

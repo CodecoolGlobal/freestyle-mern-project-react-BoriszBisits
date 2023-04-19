@@ -111,7 +111,7 @@ function App() {
 
       {view === "dragonfire" && (
         <Dragonfire characters={characterData}  renderDeathByFire={renderDeathByFire}  onCharacterDetails={handleCharacterDetails} />
-
+      )}
       {view === "marriage" && (
         <Marriage
           characters={characterData}
