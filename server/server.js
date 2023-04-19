@@ -18,6 +18,13 @@ app.post("/api/character/:id", async (req, res) => {
   res.sendStatus(200);
 });
 
+app.delete(`/api/dragonfire/:id`, async(req,res)=>{
+  const dragonfireCharacter=req.params.id
+  //await Character.findByIdAndDelete(dragonfireCharacter)
+  console.log(dragonfireCharacter +"is killed")
+  res.sendStatus(200)
+})
+
 app.post("/api/council/:id", async (req, res) => {
   const addToCouncil = req.params.id;
   console.log(addToCouncil);
