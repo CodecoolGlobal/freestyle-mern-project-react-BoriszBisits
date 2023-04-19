@@ -11,7 +11,7 @@ function CharacterDetails({character, onAddMemberToCouncil, onKill}) {
     <div className='pic'>
       <img src={banner} style={{height: 550}} alt=''></img>
       <div className='details'>
-        <img src={character.imgurl} alt="Loading" style={{height: 400}}></img>
+        <img src={character.imgurl} alt='./assets/baby.jpg' style={{height: 400}}></img>
         <div>Name: {character.name}</div>
         <div>Title: {character.title}</div>
         <div>Family: {character.family}</div>
