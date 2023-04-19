@@ -18,6 +18,13 @@ app.post("/api/character/:id", async (req, res) => {
   res.sendStatus(200);
 });
 
+app.delete(`/api/dragonfire/:id`, async(req,res)=>{
+  const dragonfireCharacter=req.params.id
+  //await Character.findByIdAndDelete(dragonfireCharacter)
+  console.log(dragonfireCharacter +"is killed")
+  res.sendStatus(200)
+})
+
 app.post("/api/council/:id", async (req, res) => {
   const addToCouncil = req.params.id;
   console.log(addToCouncil);
@@ -28,11 +35,17 @@ app.post("/api/council/:id", async (req, res) => {
   res.sendStatus(200);
 });
 
+
 app.patch("/api/graveyard", async (req, res) => {
   await Character.findByIdAndUpdate(
     { _id: req.query.ressurectCharacterId },
     { isAlive: true }
   );
+
+app.post("/api/child", async (req, res) => {
+  const child = req.body;
+  await Character.create(child);
+
   res.sendStatus(200);
 });
 
