@@ -95,7 +95,7 @@ function Marriage({ characters, onKill, onSave }) {
           {child && (
             <div className="details" style={{ background: "#67331e" }}>
               <div>Its {child.sex}!</div>
-              <img src="./assets/baby.jpg" style={{height: 200}}></img>
+              <img src="./assets/baby.jpg" style={{height: 200}} alt=""></img>
               <div>Name your child! </div>
               <input
                 defaultValue={""}
