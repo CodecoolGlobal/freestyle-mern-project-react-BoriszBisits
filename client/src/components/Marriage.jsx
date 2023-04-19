@@ -52,7 +52,7 @@ function Marriage({ characters, onKill, onSave }) {
       title: child.title,
       family: child.family,
       img: "",
-      imgurl: "",
+      imgurl: "./assets/baby.jpg",
       councilMember: false,
       isAlive: true,
       location: child.location,
@@ -95,6 +95,7 @@ function Marriage({ characters, onKill, onSave }) {
           {child && (
             <div className="details" style={{ background: "#67331e" }}>
               <div>Its {child.sex}!</div>
+              <img src="./assets/baby.jpg" style={{height: 200}}></img>
               <div>Name your child! </div>
               <input
                 defaultValue={""}
