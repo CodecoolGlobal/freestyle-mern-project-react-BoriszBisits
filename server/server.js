@@ -28,6 +28,12 @@ app.post("/api/council/:id", async (req, res) => {
   res.sendStatus(200);
 });
 
+app.post("/api/child", async (req, res) => {
+  const child = req.body;
+  await Character.create(child);
+  res.sendStatus(200);
+});
+
 app.get("/welcome", (req, res) => {
   res.send("Hello World!");
 });
