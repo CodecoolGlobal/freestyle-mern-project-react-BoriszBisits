@@ -3,7 +3,15 @@ import Characters from "./components/Characters";
 import CharacterDetails from "./components/CharacterDetails";
 import Council from "./components/Council";
 import Header from "./components/Header";
+
 import Graveyard from "./components/Graveyard";
+
+
+import Dragonfire from "./components/Dragondfire";
+
+import Marriage from "./components/Marriage";
+
+
 import "./App.css";
 
 function App() {
@@ -34,6 +42,12 @@ function App() {
     fetch(`/api/character/${character.name}`, { method: "POST" });
     setView("characters");
   }
+  
+  function renderDeathByFire(character){
+    character.isAlive = false;
+    setView("characters");
+
+  }
 
   const handleCharacterDetails = (character) => {
     setCharacter(character);
@@ -47,6 +61,30 @@ function App() {
   const handleCharacter = () => {
     setView("characters");
   };
+  const handleDragonFire = () => {
+    setView("dragonfire");
+  };
+
+  const handleMarriage = () => {
+    setView("marriage");
+  };
+
+  const handleCancel = () => {
+    setView("characters");
+  };
+
+  const handleSave = (newChild) => {
+    fetch("/api/child", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newChild),
+    }).then((res) => {
+      res.json();
+      setView("characters");
+    });
+  };
 
   const handleGraveyard = () => {
     setView("graveyard");
@@ -55,11 +93,16 @@ function App() {
   return (
     <div className="App">
       <Header
+        onDragonfire={handleDragonFire}
         onCouncil={handelCouncil}
         onClickCharacter={handleCharacter}
         characters={characterData}
         onCharacterDetails={handleCharacterDetails}
+
         onGraveyard={handleGraveyard}
+
+        onMarriage={handleMarriage}
+
       />
       {view === "characters" && characterData && (
         <Characters
@@ -77,7 +120,22 @@ function App() {
       {view === "council" && (
         <Council characters={characterData} onKill={handleKill} />
       )}
+
       {view === "graveyard" && <Graveyard characterData={characterData} />}
+
+
+      {view === "dragonfire" && (
+        <Dragonfire characters={characterData}  renderDeathByFire={renderDeathByFire}  onCharacterDetails={handleCharacterDetails} />
+      )}
+      {view === "marriage" && (
+        <Marriage
+          characters={characterData}
+          onKill={handleCancel}
+          onSave={handleSave}
+        />
+
+      )}
+
     </div>
   );
 }
