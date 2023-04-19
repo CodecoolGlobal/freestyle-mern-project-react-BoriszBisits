@@ -3,6 +3,7 @@ import Characters from "./components/Characters";
 import CharacterDetails from "./components/CharacterDetails";
 import Council from "./components/Council";
 import Header from "./components/Header";
+import Marriage from "./components/Marriage";
 import "./App.css";
 
 function App() {
@@ -47,6 +48,27 @@ function App() {
     setView("characters");
   };
 
+  const handleMarriage = () => {
+    setView("marriage");
+  };
+
+  const handleCancel = () => {
+    setView("characters");
+  };
+
+  const handleSave = (newChild) => {
+    fetch("/api/child", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newChild),
+    }).then((res) => {
+      res.json();
+      setView("characters");
+    });
+  };
+
   return (
     <div className="App">
       <Header
@@ -54,6 +76,7 @@ function App() {
         onClickCharacter={handleCharacter}
         characters={characterData}
         onCharacterDetails={handleCharacterDetails}
+        onMarriage={handleMarriage}
       />
       {view === "characters" && characterData && (
         <Characters
@@ -70,6 +93,13 @@ function App() {
       )}
       {view === "council" && (
         <Council characters={characterData} onKill={handleKill} />
+      )}
+      {view === "marriage" && (
+        <Marriage
+          characters={characterData}
+          onKill={handleCancel}
+          onSave={handleSave}
+        />
       )}
     </div>
   );
