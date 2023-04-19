@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import CharaterDetailsDragonfire from "./CharaterDetailsDragonfire.jsx";
 
-function Dragondfire({ characters , }) {
+function Dragondfire({ characters , renderDeathByFire}) {
   const [deadCharacter, setDeadCharacter] = useState("");
   const [list, setList] = useState("");
   const [characterToKill , setCharaterToKill]=useState("")
@@ -45,7 +45,7 @@ function Dragondfire({ characters , }) {
             {element.name}
           </h1>
         ))}
-    {characterToKill !== "" && <CharaterDetailsDragonfire character={characterToKill} />} 
+    {characterToKill !== "" && <CharaterDetailsDragonfire renderDeathByFire={renderDeathByFire} character={characterToKill} />} 
     </>
   );
 }
