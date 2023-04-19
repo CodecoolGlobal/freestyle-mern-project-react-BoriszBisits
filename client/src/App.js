@@ -3,7 +3,11 @@ import Characters from "./components/Characters";
 import CharacterDetails from "./components/CharacterDetails";
 import Council from "./components/Council";
 import Header from "./components/Header";
+
+import Dragonfire from "./components/Dragondfire";
+
 import Marriage from "./components/Marriage";
+
 import "./App.css";
 
 function App() {
@@ -34,6 +38,12 @@ function App() {
     fetch(`/api/character/${character.name}`, { method: "POST" });
     setView("characters");
   }
+  
+  function renderDeathByFire(character){
+    character.isAlive = false;
+    setView("characters");
+
+  }
 
   const handleCharacterDetails = (character) => {
     setCharacter(character);
@@ -46,6 +56,9 @@ function App() {
 
   const handleCharacter = () => {
     setView("characters");
+  };
+  const handleDragonFire = () => {
+    setView("dragonfire");
   };
 
   const handleMarriage = () => {
@@ -72,6 +85,7 @@ function App() {
   return (
     <div className="App">
       <Header
+        onDragonfire={handleDragonFire}
         onCouncil={handelCouncil}
         onClickCharacter={handleCharacter}
         characters={characterData}
@@ -94,12 +108,17 @@ function App() {
       {view === "council" && (
         <Council characters={characterData} onKill={handleKill} />
       )}
+
+      {view === "dragonfire" && (
+        <Dragonfire characters={characterData}  renderDeathByFire={renderDeathByFire}  onCharacterDetails={handleCharacterDetails} />
+
       {view === "marriage" && (
         <Marriage
           characters={characterData}
           onKill={handleCancel}
           onSave={handleSave}
         />
+
       )}
     </div>
   );
