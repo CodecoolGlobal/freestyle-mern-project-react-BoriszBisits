@@ -34,9 +34,10 @@ app.post("/api/council/:id", async (req, res) => {
 
 app.patch("/api/graveyard", async (req, res) => {
   await Character.findByIdAndUpdate(
-    { _id: req.query.ressurectCharacterId },
+    { _id: req.query.resurrectCharacterId },
     { isAlive: true }
   );
+   res.sendStatus(200);
 });
 
 app.post("/api/child", async (req, res) => {

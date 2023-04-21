@@ -5,7 +5,7 @@ function Graveyard({ characterData }) {
   const [deadCharacters, setdeadCharacters] = useState(characterData);
 
   function resurrectCharacter(id) {
-    fetch(`/api/graveyard/?ressurectCharacterId=${id}`, {
+    fetch(`/api/graveyard/?resurrectCharacterId=${id}`, {
       method: "PATCH",
     });
     updateCharacterData(id);
