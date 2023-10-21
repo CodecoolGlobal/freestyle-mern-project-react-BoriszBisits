@@ -1,0 +1,16 @@
+name: Build and push docker images
+
+on: [push]
+
+env:
+  DOCKER_IMAGE: "freestyle:latest"
+
+jobs:
+  push-image-to-dockerhub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: docker login
+        run: docker login -u $secrets.DOCKER_USER -p $secrets.DOCKER_PASSWORD
+      - name: publish docker image
+        run: docker push $DOCKER_IMAGE
