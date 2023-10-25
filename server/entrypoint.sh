@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 20
+#sleep 30
 
 echo "seed starting"
 
