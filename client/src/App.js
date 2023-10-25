@@ -3,15 +3,9 @@ import Characters from "./components/Characters";
 import CharacterDetails from "./components/CharacterDetails";
 import Council from "./components/Council";
 import Header from "./components/Header";
-
 import Graveyard from "./components/Graveyard";
-
-
 import Dragonfire from "./components/Dragondfire";
-
 import Marriage from "./components/Marriage";
-
-
 import "./App.css";
 
 function App() {

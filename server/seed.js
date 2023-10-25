@@ -1,6 +1,8 @@
-require("dotenv").config();
+//require("dotenv").config();
+const fetch = require("node-fetch")
 const Character = require("./model/character.js");
 const mongoose = require("mongoose");
+const { MONGODB_URI } = process.env;
 
 const families = [
   { name: "House Stark", location: "Winterfell" },
@@ -26,7 +28,7 @@ const families = [
 ];
 
 const seed = async () => {
-  await mongoose.connect(process.env.MONGO_URL);
+  await mongoose.connect(MONGODB_URI);
 
   const API_URL = "https://thronesapi.com/api/v2/Characters";
   const response = await fetch(API_URL);

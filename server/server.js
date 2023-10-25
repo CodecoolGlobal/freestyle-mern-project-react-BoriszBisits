@@ -1,7 +1,8 @@
-require("dotenv").config();
+//require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const Character = require("./model/character.js");
+const { MONGODB_URI } = process.env;
 
 const app = express();
 app.use(express.json());
@@ -54,7 +55,7 @@ app.get("/welcome", (req, res) => {
 const port = 5000;
 
 const main = async () => {
-  await mongoose.connect(process.env.MONGO_URL);
+  await mongoose.connect(MONGODB_URI);
   app.listen(port, () => console.log(`http://127.0.0.1:${port}/welcome`));
 };
 
